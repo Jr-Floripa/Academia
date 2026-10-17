@@ -1,6 +1,11 @@
   <h1 align="center" style="color:red;">
-    🏋️‍♂️⚔️ Academia ⚔️🏋️‍♀️
+    🏋️‍♂️ Academia 🏋️‍♀️
 </h1>
+<p align="center">
+  <img src="https://svg-banners.vercel.app/api?type=origin&text1=Academia%20API&text2=Java%20%7C%20Spring%20Boot%20%7C%20Railway&width=900&height=250" />
+</p>
+
+
 
 
 ## Projeto desenvolvido para conclusão do Santander Dev Week com parceria DIO.me 
@@ -16,6 +21,14 @@ Trata-se de uma API Restful que permite aos alunos de uma academia consultar:
 
 O objetivo é demonstrar domínio em backend Java, modelagem de dados, boas práticas de API e documentação.
 
+## 🚀 Tecnologias utilizadas
+
+![Java](https://img.shields.io/badge/Java-17-ff8c00?style=plastic&logo=openjdk)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.0-00ff7f?style=plastic&logo=springboot)
+![Copilot](https://img.shields.io/badge/Copilot-AI_Assistant-00ffff?style=plastic&logo=microsoft)
+![Maven](https://img.shields.io/badge/Maven-3.8.6-ff1493?style=plastic&logo=apachemaven)
+![MySQL](https://img.shields.io/badge/Postgres-9.0-1e90ff?style=plastic&logo=mysql)
+![Railway](https://img.shields.io/badge/Railway-Deploy-9400d3?style=plastic&logo=railway)
 
 
 
