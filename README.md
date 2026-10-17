@@ -3,7 +3,7 @@
 </h1>
 
 
-### Projeto desenvolvido para conclusão do Santander Dev Week (DIO.me)  
+## Projeto desenvolvido para conclusão do Santander Dev Week com parceria DIO.me 
 Este sistema foi construído em Java, utilizando Spring Boot, Maven como gerenciador de dependências e H2 Database durante o desenvolvimento.
 
 Trata-se de uma API Restful que permite aos alunos de uma academia consultar:
@@ -20,41 +20,52 @@ O objetivo é demonstrar domínio em backend Java, modelagem de dados, boas prá
 
 
 
-## Entidades
+## Diagrama de classes:
 
-    class Alunos {
-        +int matricula PK
-        +string nome
-        +string cpf
-        +string telefone
-        +string senha
-    }
+```mermaid
+classDiagram
+%% ============================
+%%        ENTIDADES
+%% ============================
 
-    class Aulas {
-        +int id_aula PK
-        +string categoria
-    }
+class Alunos {
+  +int matricula PK
+  +string nome
+  +string cpf
+  +string telefone
+  +string senha
+}
 
-    class Aula_Aluno {
-        +int codigo PK
-        +int matricula FK
-        +int id_aula FK
-    }
+class Aulas {
+  +int id_aula PK
+  +string categoria
+}
 
-    class Professor {
-        +int registro PK
-        +string nome
-        +int id_aula FK
-    }
+class Aula_Aluno {
+  +int codigo PK
+  +int matricula FK
+  +int id_aula FK
+}
 
-    class Calendario {
-        +int codigo FK
-        +string dia_semana
-        +time hora
-    }
+class Professor {
+  +int registro PK
+  +string nome
+  +int id_aula FK
+}
 
-    Alunos "1" --> "0..*" Aula_Aluno : matricula
-    Aulas "1" --> "0..*" Aula_Aluno : id_aula
-    Aulas "1" --> "0..*" Professor : id_aula
-    Aula_Aluno "1" --> "1" Calendario : codigo
+class Calendario {
+  +int codigo FK
+  +string dia_semana
+  +time hora
+}
+
+%% ============================
+%%        RELACIONAMENTOS
+%% ============================
+
+Alunos "1" --> "0..*" Aula_Aluno : matricula
+Aulas "1" --> "0..*" Aula_Aluno : id_aula
+Aulas "1" --> "0..*" Professor : id_aula
+Aula_Aluno "1" --> "1" Calendario : codigo
+```
 
