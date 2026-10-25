@@ -37,48 +37,64 @@ O objetivo é demonstrar domínio em backend Java, modelagem de dados, boas prá
 
 ```mermaid
 classDiagram
-%% ============================
-%%        ENTIDADES
-%% ============================
+    class Pessoa {
+        +string nome
+        +string cpf
+        +string telefone
+        +string email
+    }
 
-class Alunos {
-  +int matricula PK
-  +string nome
-  +string cpf
-  +string telefone
-  +string senha
-}
+    class Aluno {
+        +int id_aluno
+        +date data_cadastro
+    }
 
-class Aulas {
-  +int id_aula PK
-  +string categoria
-}
+    class Professor {
+        +int id_professor
+        +int id_categoria
+    }
 
-class Aula_Aluno {
-  +int codigo PK
-  +int matricula FK
-  +int id_aula FK
-}
+    class Categoria {
+        +int id_categoria
+        +string nome
+        +string descricao
+    }
 
-class Professor {
-  +int registro PK
-  +string nome
-  +int id_aula FK
-}
+    class DataDeAula {
+        +int id_aula
+        +int id_categoria
+        +datetime data_hora
+        +int duracao
+        +string sala
+    }
 
-class Calendario {
-  +int codigo FK
-  +string dia_semana
-  +time hora
-}
+    class Mensalidade {
+        +int id_mensalidade
+        +int id_aluno
+        +decimal valor
+        +date data_vencimento
+        +date data_pagamento
+        +string status
+    }
 
-%% ============================
-%%        RELACIONAMENTOS
-%% ============================
+    class Aulas {
+        +int id_aluno
+        +int id_categoria
+        +date data_matricula
+    }
 
-Alunos "1" --> "0..*" Aula_Aluno : matricula
-Aulas "1" --> "0..*" Aula_Aluno : id_aula
-Aulas "1" --> "0..*" Professor : id_aula
-Aula_Aluno "1" --> "1" Calendario : codigo
+    %% HERANÇA
+    Pessoa <|-- Aluno
+    Pessoa <|-- Professor
+
+    %% RELACIONAMENTOS
+    Aluno "1" --> "N" Mensalidade : possui
+    Aluno "N" --> "N" Categoria : matriculado_em
+    Aluno "1" --> "N" Aulas : vinculo
+
+    Categoria "1" --> "N" Professor : possui
+    Categoria "1" --> "N" DataDeAula : agenda
+    Categoria "1" --> "N" Aulas : vinculo
+
 ```
 
